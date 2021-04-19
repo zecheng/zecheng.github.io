@@ -407,67 +407,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>[css]一、使用外联样式替代行间样式或者内嵌样式<br>不推荐使用行间样式<br>复制代码</p>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Page title - 52css.com</title>
-</head> 
-<body>
-<p style="color: red"> ... </p> 
-</body> 
-</html> 
-　不推荐使用内嵌样式 
-复制代码
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> <html lang="en"> 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Page title - 52css.com</title> 
-<style type="text/css" media="screen">
-p { color: red; } 
-</style> 
-</head> 
-<body>... </body> 
-</html> 
-
-<p>　推荐使用外联样式<br>复制代码<br><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"></p>
-<html lang="en">
-<head> 
-<meta http-equiv="content-type" content="text 
-<title>Page title - 52css.com</title> 
-<link rel="stylesheet" href="name.css" type="text/css" media="screen" /> 
-< /head> 
-<body> ... </body> 
-</html> 
-
-<p>二、建议使用 link 引入外部样式表 </p>
-<p>　　为了兼容老版本的浏览器，建议使用 link 引入外部样式表的方来代替 @import导入样式的方式.<br>译者注： @import是CSS2.1提出的所以老的浏览器不支持，点击查看 @import的兼容性。<br>　　@import和link在使用上会有一些区别， 利用二者之间的差异，可以在实际运用中进行权衡。<br>　　关于@import和link方式的比较在52CSS.com上有几篇文章可以拓展阅读。<br>　　不推荐@import导入方式<br>复制代码<br><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> </p>
-<html lang="en">
-<head> 
-<meta http-equiv="content-type" content="text 
-<title>Page title - 52css.com</title> 
-<style type="text/css" media="screen"> 
-@import url("styles.css");
-</style>
-</head>
-<body> ... </body>
-</html> 
-
-<p>推荐引入外部样式表方式<br>复制代码<br><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> <html lang="en"> <head></p>
-<meta http-equiv="content-type" content="text 
-<title>Page title - 52css.com</title>
-<link rel="stylesheet" href="name.css" type="text/css" media="screen" />
-</head> 
-<body> ... </body> 
-</html>
-
-<p>三、使用继承<br>复制代码<br>低效率的<br>p{ font-family: arial, helvetica, sans-serif; }<br>#container { font-family: arial, helvetica, sans-serif; }<br>#navigation { font-family: arial, helvetica, sans-serif; }<br>#content { font-family: arial, helvetica, sans-serif; }<br>#sidebar { font-family: arial, helvetica, sans-serif; }<br>h1 { font-family: georgia, times, serif; }<br>高效的<br>body { font-family: arial, helvetica, sans-serif; }<br>body { font-family: arial, helvetica, sans-serif; }<br>h1 { font-family: georgia, times, serif; } </p>
-<p>四、使用多重选择器<br>复制代码<br>低效率的<br>h1 { color: #236799; }<br>h2 { color: #236799; }<br>h3 { color: #236799; }<br>h4 { color: #236799; }<br>高效的h1, h2, h3, h4 { color: #236799; } </p>
-<p>五、使用多重声明<br>复制代码<br>低效率的<br>p { margin: 0 0 1em; }<br>p { background: #ddd; }<br>p { color: #666; }<br>译者注： 对于十六进制颜色值，个人偏向于色值不缩写且英文字母要大写的方式.<br>高效的<br>p { margin: 0 0 1em; background: #ddd; color: #666; } </p>
-<p>　　六、使用简记属性<br>复制代码<br>低效率的<br>body { font-size: 85%; font-family: arial, helvetica, sans-serif; background-image: url(image.gif); background-repeat: no-repeat; background-position: 0 100%; margin-top: 1em; margin-right: 1em; margin-bottom: 0; margin-left: 1em; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-style: solid; border-width: 1px; border-color: red; color: #222222;<br>高效的<br>body { font: 85% arial, helvetica, sans-serif; background: url(image.gif) no-repeat 0 100%; margin: 1em 1em 0; padding: 10px; border: 1px solid red; color: #222; } </p>
-<p>七、避免使用 !important<br>复制代码<br>慎用写法<br>#news { background: #ddd !important; }<br>特定情况下可以使用以下方式提高权重级别<br>#container #news { background: #ddd; }<br>body #container #news { background: #ddd; }  [/css]</p>
-
+          <p>[css]一、使用外联样式替代行间样式或者内嵌样式
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/06/17/CSS%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB%EF%BC%9A%E4%B9%A6%E5%86%99%E9%AB%98%E6%95%88CSS%E6%B3%A8%E6%84%8F%E7%9A%84%E4%B8%83%E4%B8%AA%E6%96%B9%E9%9D%A2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

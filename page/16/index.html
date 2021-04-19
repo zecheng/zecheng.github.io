@@ -893,7 +893,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>718</span>
+              <span>740</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -912,8 +912,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">1.修改selinux配置文件(/etc/sysconfig/selinux)</span><br><span class="line">（1）把SELINUX=enforcing注释掉</span><br><span class="line">（2）并添加SELINUX=disabled</span><br><span class="line"></span><br><span class="line">2.修改防火墙配置文件(/etc/sysconfig/iptables)</span><br><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 8080 -j ACCEPT</span><br><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT</span><br><span class="line">打开连个常用的端口</span><br><span class="line"></span><br><span class="line">3.修改mysql配置文件(/etc/my.cnf)</span><br><span class="line">（1）在[mysqld]里添加</span><br><span class="line">default-character-set=utf8</span><br><span class="line">（2）添加[mysql]</span><br><span class="line">default-character-set=utf8</span><br><span class="line"></span><br><span class="line">4.修改php配置文件 (/etc/httpd/conf/httpd.conf)</span><br><span class="line">修改</span><br><span class="line">（1）User 用户名</span><br><span class="line">Group 用户组</span><br><span class="line">（2）这一行去掉注释ServerName www.example.com:80</span><br><span class="line">（3）设置eclipse的默认目录为虚拟目录</span><br><span class="line"></span><br><span class="line">Alias /workspace &quot;/home/用户名/workspace/&quot;</span><br><span class="line">&lt;Directory &quot;/home/用户名/workspace/&quot;&gt;</span><br><span class="line">Options Indexes FollowSymLinks</span><br><span class="line">AllowOverride None</span><br><span class="line">Order allow,deny</span><br><span class="line">Allow from all </span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line">在吧里备份一份</span><br><span class="line">这些东西倒腾我太多时间了 </span><br></pre></td></tr></table></figure>
-
+          <h3 id="CentOS-配置httpd服务器要修改的地方"><a href="#CentOS-配置httpd服务器要修改的地方" class="headerlink" title="CentOS 配置httpd服务器要修改的地方"></a>CentOS 配置httpd服务器要修改的地方</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/06/17/CentOS%20%E9%85%8D%E7%BD%AEhttpd%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A6%81%E4%BF%AE%E6%94%B9%E7%9A%84%E5%9C%B0%E6%96%B9/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

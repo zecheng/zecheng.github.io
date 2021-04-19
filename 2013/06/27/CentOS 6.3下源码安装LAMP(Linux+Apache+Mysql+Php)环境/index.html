@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"zecheng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="什么是LAMPLAMP是一种Web网络应用和开发环境，是Linux, Apache, MySQL, Php&#x2F;Perl的缩写，每一个字母代表了一个组件，每个组件就其本身而言都是在它所代表的方面功能非常强大的组件。LAMP这个词的由来最早始于德国杂志“c’t Magazine”，Michael Kunze在1990年最先把这些项目组合在一起创造了LAMP的缩写字。这些组件并不是开始就设计为一起使用的，">
+  <meta name="description" content="什么是LAMP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 6.3下源码安装LAMP(Linux+Apache+Mysql+Php)环境">
 <meta property="og:url" content="https://zecheng.github.io/2013/06/27/CentOS%206.3%E4%B8%8B%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85LAMP(Linux+Apache+Mysql+Php)%E7%8E%AF%E5%A2%83/index.html">
 <meta property="og:site_name" content="泽宬的技术博客">
-<meta property="og:description" content="什么是LAMPLAMP是一种Web网络应用和开发环境，是Linux, Apache, MySQL, Php&#x2F;Perl的缩写，每一个字母代表了一个组件，每个组件就其本身而言都是在它所代表的方面功能非常强大的组件。LAMP这个词的由来最早始于德国杂志“c’t Magazine”，Michael Kunze在1990年最先把这些项目组合在一起创造了LAMP的缩写字。这些组件并不是开始就设计为一起使用的，">
+<meta property="og:description" content="什么是LAMP">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://pic002.cnblogs.com/images/2012/370046/2012112010273696.jpg">
 <meta property="og:image" content="http://pic002.cnblogs.com/images/2012/370046/2012112010590951.jpg">
@@ -253,7 +253,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>什么是LAMP</strong><br>LAMP是一种Web网络应用和开发环境，是Linux, Apache, MySQL, Php/Perl的缩写，每一个字母代表了一个组件，每个组件就其本身而言都是在它所代表的方面功能非常强大的组件。<br>LAMP这个词的由来最早始于德国杂志“c’t Magazine”，Michael Kunze在1990年最先把这些项目组合在一起创造了LAMP的缩写字。这些组件并不是开始就设计为一起使用的，但是，这些软件都是开源的，可以很方便的随时获得并免费使用，这就导致了这些组件经常在一起使用。这些组件的兼容性也在不断完善，为了改善不同组件之间的协作，已经创建了某些扩展功能，在一起的应用情形变得非常普便，因而成为目前最流行的web应用基础架构。</p>
+        <p><strong>什么是LAMP</strong><span id="more"></span><br>LAMP是一种Web网络应用和开发环境，是Linux, Apache, MySQL, Php/Perl的缩写，每一个字母代表了一个组件，每个组件就其本身而言都是在它所代表的方面功能非常强大的组件。<br>LAMP这个词的由来最早始于德国杂志“c’t Magazine”，Michael Kunze在1990年最先把这些项目组合在一起创造了LAMP的缩写字。这些组件并不是开始就设计为一起使用的，但是，这些软件都是开源的，可以很方便的随时获得并免费使用，这就导致了这些组件经常在一起使用。这些组件的兼容性也在不断完善，为了改善不同组件之间的协作，已经创建了某些扩展功能，在一起的应用情形变得非常普便，因而成为目前最流行的web应用基础架构。</p>
 <p><strong>LAMP的组件</strong><br>平台由四个组件组成，呈分层结构，每一层都提供了整个架构的一个关键部分：<br><strong>   Linux</strong><strong>：</strong>Linux 处在最底层，提供操作系统。它的灵活性和可定制化的特点意味着它能够产生一种高度定制的平台，让其它组件在上面运行。其它组件运行于Linux 之上，但是并不一定局限于 Linux，也可以在 Microsoft Windows, Mac OS X 或 UNIX上运行。<br><strong>   Apache</strong><strong>：</strong>Apache位于第二层，它是一个Web 服务平台，提供可让用户获得 Web 页面的机制。Apache 是一款功能强大、稳定、可支撑关键任务的Web服务器，Internet 上超过 50％ 的网站都使用它作为 Web 服务器。<br><strong>   MySQL</strong><strong>：</strong>MySQL 是最流行的开源关系数据库管理系统，是LAMP的数据存储端。在 Web 应用程序中，所有帐户信息、产品信息、客户信息、业务数据和其他类型的信息都存储于数据库中，通过 SQL 语言可以很容易地查询这些信息。<br><strong>   PHP/Perl</strong><strong>：</strong>Perl是一种灵活的语言，特别是在处理文本要素的时候，这种灵活性使Perl很容易处理通过 CGI接口提供的数据，灵活地运用文本文件和简单数据库支持动态要素。PHP 是一种被广泛应用的开放源代码的多用途脚本语言，它可嵌入到 HTML中，尤其适合 web 开发。可以使用 PHP 编写能访问 MySQL 数据库中的数据和 Linux 提供的一些特性的动态内容。</p>
 <p><strong>二、系统环境</strong></p>
 <p>系统平台：CentOS release 5.8 (Final)</p>
