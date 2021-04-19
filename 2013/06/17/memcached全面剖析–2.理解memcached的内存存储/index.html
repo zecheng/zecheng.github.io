@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"zecheng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="下面是《memcached全面剖析》的第二部分。      发表日：2008&#x2F;7&#x2F;9     作者：前坂徹(Toru Maesaka)     原文链接：http:&#x2F;&#x2F;gihyo.jp&#x2F;dev&#x2F;feature&#x2F;01&#x2F;memcached&#x2F;0002  我是mixi株式会社研究开发组的前坂徹。 上次的文章介绍了memcached是分布式的高速缓存服务器。 本次将介绍memcached的内部构造的实现方式">
+  <meta name="description" content="下面是《memcached全面剖析》的第二部分。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="memcached全面剖析–2.理解memcached的内存存储">
 <meta property="og:url" content="https://zecheng.github.io/2013/06/17/memcached%E5%85%A8%E9%9D%A2%E5%89%96%E6%9E%90%E2%80%932.%E7%90%86%E8%A7%A3memcached%E7%9A%84%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8/index.html">
 <meta property="og:site_name" content="泽宬的技术博客">
-<meta property="og:description" content="下面是《memcached全面剖析》的第二部分。      发表日：2008&#x2F;7&#x2F;9     作者：前坂徹(Toru Maesaka)     原文链接：http:&#x2F;&#x2F;gihyo.jp&#x2F;dev&#x2F;feature&#x2F;01&#x2F;memcached&#x2F;0002  我是mixi株式会社研究开发组的前坂徹。 上次的文章介绍了memcached是分布式的高速缓存服务器。 本次将介绍memcached的内部构造的实现方式">
+<meta property="og:description" content="下面是《memcached全面剖析》的第二部分。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xnr.gongzuo.in/wp-content/uploads/2013/06/memcached-0002-01-300x223.png">
 <meta property="og:image" content="http://xnr.gongzuo.in/wp-content/uploads/2013/06/memcached-0002-02-300x223.png">
@@ -257,6 +257,7 @@
 
       
         <p>下面是《memcached全面剖析》的第二部分。</p>
+<span id="more"></span>
 <ul>
     <li>发表日：2008/7/9</li>
     <li>作者：前坂徹(Toru Maesaka)</li>
@@ -264,7 +265,7 @@
 </ul>
 我是<a target="_blank" rel="noopener" href="http://mixi.jp/">mixi株式会社</a>研究开发组的前坂徹。 <a target="_blank" rel="noopener" href="http://tech.idv2.com/2008/07/10/memcached-001/">上次</a>的文章介绍了memcached是分布式的高速缓存服务器。 本次将介绍memcached的内部构造的实现方式，以及内存的管理方式。 另外，memcached的内部构造导致的弱点也将加以说明。
 <h1>Slab Allocation机制：整理内存以便重复使用</h1>
-最近的memcached默认情况下采用了名为Slab Allocator的机制分配、管理内存。 在该机制出现以前，内存的分配是通过对所有记录简单地进行malloc和free来进行的。 但是，这种方式会导致内存碎片，加重操作系统内存管理器的负担，最坏的情况下， 会导致操作系统比memcached进程本身还慢。Slab Allocator就是为解决该问题而诞生的。<span id="more"></span>
+最近的memcached默认情况下采用了名为Slab Allocator的机制分配、管理内存。 在该机制出现以前，内存的分配是通过对所有记录简单地进行malloc和free来进行的。 但是，这种方式会导致内存碎片，加重操作系统内存管理器的负担，最坏的情况下， 会导致操作系统比memcached进程本身还慢。Slab Allocator就是为解决该问题而诞生的。<!--more-->
 
 <p>下面来看看Slab Allocator的原理。下面是memcached文档中的slab allocator的目标：</p>
 <blockquote>the primary goal of the slabs subsystem in memcached was to eliminate memory fragmentation issues totally by using fixed-size memory chunks coming from a few predetermined size classes.</blockquote>

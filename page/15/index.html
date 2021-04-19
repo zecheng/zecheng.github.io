@@ -433,17 +433,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>翻译一篇技术评论社的文章，是讲memcached的连载。<a target="_blank" rel="noopener" href="http://www.fcicq.net/wp/">fcicq</a>同学说这个东西很有用，希望大家喜欢。</p>
-<ul>
-    <li>发表日：2008/7/2</li>
-    <li>作者：长野雅广(Masahiro Nagano)</li>
-    <li>原文链接：<a target="_blank" rel="noopener" href="http://gihyo.jp/dev/feature/01/memcached/0001">http://gihyo.jp/dev/feature/01/memcached/0001</a></li>
-</ul>
-我是<a target="_blank" rel="noopener" href="http://mixi.jp/">mixi株式会社</a>开发部系统运营组的长野。 日常负责程序的运营。从今天开始，将分几次针对最近在Web应用的可扩展性领域 的热门话题memcached，与我公司开发部研究开发组的前坂一起， 说明其内部结构和使用。
-<h1>memcached是什么？</h1>
-<a target="_blank" rel="noopener" href="http://www.danga.com/memcached/">memcached</a> 是以<a target="_blank" rel="noopener" href="http://www.livejournal.com/">LiveJournal</a> 旗下<a target="_blank" rel="noopener" href="http://www.danga.com/">Danga Interactive</a> 公司的<a target="_blank" rel="noopener" href="http://www.bradfitz.com/">Brad Fitzpatric</a> 为首开发的一款软件。现在已成为 <a target="_blank" rel="noopener" href="http://mixi.jp/">mixi</a>、<a target="_blank" rel="noopener" href="http://www.hatena.ne.jp/">hatena</a>、 <a target="_blank" rel="noopener" href="http://www.facebook.com/">Facebook</a>、 <a target="_blank" rel="noopener" href="http://www.vox.com/">Vox</a>、LiveJournal等众多服务中 提高Web应用扩展性的重要因素。
-
-<p>许多Web应用都将数据保存到RDBMS中，应用服务器从中读取数据并在浏览器中显示。 但随着数据量的增大、访问的集中，就会出现RDBMS的负担加重、数据库响应恶化、 网站显示延迟等重大影响。
+          <p>翻译一篇技术评论社的文章，是讲memcached的连载。
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2013/06/17/memcached%E5%AE%8C%E5%85%A8%E5%89%96%E6%9E%90%E2%80%931.%20memcached%E7%9A%84%E5%9F%BA%E7%A1%80/#more" rel="contents">
@@ -539,14 +529,6 @@
 
       
           <p>下面是《memcached全面剖析》的第二部分。</p>
-<ul>
-    <li>发表日：2008/7/9</li>
-    <li>作者：前坂徹(Toru Maesaka)</li>
-    <li>原文链接：<a target="_blank" rel="noopener" href="http://gihyo.jp/dev/feature/01/memcached/0002">http://gihyo.jp/dev/feature/01/memcached/0002</a></li>
-</ul>
-我是<a target="_blank" rel="noopener" href="http://mixi.jp/">mixi株式会社</a>研究开发组的前坂徹。 <a target="_blank" rel="noopener" href="http://tech.idv2.com/2008/07/10/memcached-001/">上次</a>的文章介绍了memcached是分布式的高速缓存服务器。 本次将介绍memcached的内部构造的实现方式，以及内存的管理方式。 另外，memcached的内部构造导致的弱点也将加以说明。
-<h1>Slab Allocation机制：整理内存以便重复使用</h1>
-最近的memcached默认情况下采用了名为Slab Allocator的机制分配、管理内存。 在该机制出现以前，内存的分配是通过对所有记录简单地进行malloc和free来进行的。 但是，这种方式会导致内存碎片，加重操作系统内存管理器的负担，最坏的情况下， 会导致操作系统比memcached进程本身还慢。Slab Allocator就是为解决该问题而诞生的。
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2013/06/17/memcached%E5%85%A8%E9%9D%A2%E5%89%96%E6%9E%90%E2%80%932.%E7%90%86%E8%A7%A3memcached%E7%9A%84%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8/#more" rel="contents">
@@ -642,20 +624,6 @@
 
       
           <p>下面是《memcached全面剖析》的第三部分。</p>
-<ul>
-    <li>发表日：2008/7/16</li>
-    <li>作者：前坂徹(Toru Maesaka)</li>
-    <li>原文链接：<a target="_blank" rel="noopener" href="http://gihyo.jp/dev/feature/01/memcached/0003">http://gihyo.jp/dev/feature/01/memcached/0003</a></li>
-</ul>
-前几次的文章在这里：
-<ul>
-    <li>第1次：<a target="_blank" rel="noopener" href="http://tech.idv2.com/2008/07/10/memcached-001/">http://tech.idv2.com/2008/07/10/memcached-001/</a></li>
-    <li>第2次：<a target="_blank" rel="noopener" href="http://tech.idv2.com/2008/07/11/memcached-002/">http://tech.idv2.com/2008/07/11/memcached-002/</a></li>
-</ul>
-memcached是缓存，所以数据不会永久保存在服务器上，这是向系统中引入memcached的前提。 本次介绍memcached的数据删除机制，以及memcached的最新发展方向——二进制协议（Binary Protocol） 和外部引擎支持。
-<h1>memcached在数据删除方面有效利用资源</h1>
-<h2>数据不会真正从memcached中消失</h2>
-<a target="_blank" rel="noopener" href="http://tech.idv2.com/2008/07/11/memcached-002/">上次</a>介绍过， memcached不会释放已分配的内存。记录超时后，客户端就无法再看见该记录（invisible，透明）， 其存储空间即可重复使用。
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2013/06/17/memcached%E5%85%A8%E9%9D%A2%E5%89%96%E6%9E%90%E2%80%933.memcached%E7%9A%84%E5%88%A0%E9%99%A4%E6%9C%BA%E5%88%B6%E5%92%8C%E5%8F%91%E5%B1%95%E6%96%B9%E5%90%91/#more" rel="contents">
