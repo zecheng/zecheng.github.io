@@ -142,6 +142,11 @@
     <a href="/404.html" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
 
   </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>链接</a>
+
+  </li>
   </ul>
 </nav>
 
@@ -166,87 +171,6 @@
 
           <div class="content index posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zecheng.github.io/2013/06/17/%E5%BF%AB%E9%80%9F%E5%9C%A8CentOS%E4%B8%8B%E6%90%AD%E5%BB%BALAMP%EF%BC%88Apache%E3%80%81MySQL%E3%80%81PHP%EF%BC%89%E7%8E%AF%E5%A2%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="泽宬">
-      <meta itemprop="description" content="路虽遥,行必至.事虽难,做必成.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="泽宬的技术博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2013/06/17/%E5%BF%AB%E9%80%9F%E5%9C%A8CentOS%E4%B8%8B%E6%90%AD%E5%BB%BALAMP%EF%BC%88Apache%E3%80%81MySQL%E3%80%81PHP%EF%BC%89%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">快速在CentOS下搭建LAMP（Apache、MySQL、PHP）环境</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2013-06-17 22:45:49" itemprop="dateCreated datePublished" datetime="2013-06-17T22:45:49+08:00">2013-06-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LINUX/" itemprop="url" rel="index"><span itemprop="name">LINUX</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">LAMP（Linux、Apache、MySQL、PHP）是一套用于提供php架构网站服务的完美组合的简称，LAMP组合有着极高的性能，完善的支持 体系，灵活的配置方法，但是Lamp架构其本身也越来越臃肿，在Lamp安装完成后最好进行针对硬件的优化，以获得更好的性能。 </span><br><span class="line">LAMP可以在很多平台（Linux、Windows、Unix、MacOS X）中搭建，本文以CentOS系统安装LAMP套件进行举例。 </span><br><span class="line">搭建需要有一台安装有CentOS的服务器，并且最好是纯净安装：即仅仅安装最少的系统组件。 </span><br><span class="line"></span><br><span class="line">首先安装Apache2 </span><br><span class="line">一条命令即可： </span><br><span class="line">1 </span><br><span class="line">yum install httpd </span><br><span class="line">回车后，yum会提示当前已经安装的httpd版本，并自动更新；如果没有安装，则会自动安装。注意在yum安装过程中输入“Y”以确认安装。 </span><br><span class="line">Apache安装完成后，手动启动Apache2： </span><br><span class="line">1 </span><br><span class="line">/etc/init.d/httpd start </span><br><span class="line">这时，直接在浏览器中输入服务器的IP地址，即可看到Apache2的默认页面。此时的Apache仅仅能提供HTTP服务，不能执行php、也不能连接MySQL数据库。 </span><br><span class="line"></span><br><span class="line">随后安装MySQL </span><br><span class="line">由于CentOS中已经包含了MySQL，因此也仅需要yum即可： </span><br><span class="line">1 </span><br><span class="line">yum install mysql mysql-server </span><br><span class="line">完成后，使用如下命令启动MySQL服务： </span><br><span class="line">1 </span><br><span class="line">/etc/init.d/mysqld start </span><br><span class="line"></span><br><span class="line">下面继续安装php5 </span><br><span class="line">使用如下命令安装php5： </span><br><span class="line">1 </span><br><span class="line">yum install php </span><br><span class="line">安装完php5后，必须要重新启动Apache以使php生效： </span><br><span class="line">1 </span><br><span class="line">/etc/init.d/httpd restart </span><br><span class="line">这时，Apache已经可以解析执行php脚本了。由于Apache的默认网站根目录位于：/var/www/html/，因此在此目录建立一个info.php用来测试Apache+PHP的正确安装与否： </span><br><span class="line">1 </span><br><span class="line">echo &amp;quot;&lt;?php phpinfo(); ?&gt;&amp;quot; &gt; /var/www/html/info.php </span><br><span class="line">然后在浏览器中访问IP/info.php，出现了PHPINFO的输出信息： </span><br><span class="line">  </span><br><span class="line">注意:如果是新版本的centos 下面的模块其实已经不需要安装了自己看info有没有再决定;网上有很多的教程需要我们变通的去看</span><br><span class="line"></span><br><span class="line">表示PHP与Apache已经正确安装。 </span><br><span class="line">接下来安装MySQL数据库与其它模块（如GD图形库、mbstring库等）： </span><br><span class="line">1 </span><br><span class="line">yum install php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc </span><br><span class="line">安装过程可能比较慢，请耐心等待。完成后再次重启Apache： </span><br><span class="line">1 </span><br><span class="line">/etc/init.d/httpd restart </span><br><span class="line">重新在浏览器中打开IP/info.php页面，应该能找到MySQL、GD、mbstring等模块： </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">此时LAMP运行环境已经初步安装完毕。最后还需要将LAMP组件设置为自动启动： </span><br><span class="line">1 </span><br><span class="line">chkconfig --levels 2345 httpd on </span><br><span class="line">2 </span><br><span class="line">chkconfig --levels 2345 mysqld on </span><br><span class="line"></span><br><span class="line">最后介绍相关配置与环境 </span><br><span class="line">Apache主配置文件：/etc/httpd/conf/httpd.conf </span><br><span class="line">Apache主配置目录，可以将不同类型的配置分门别类放入这个目录中：/etc/httpd/conf.d/ </span><br><span class="line">Apache网站根目录：/var/www/html/ </span><br><span class="line">Apache日志文件目录：/var/log/httpd </span><br><span class="line">MySQL的my.cnf配置文件：/etc/my.cnf </span><br><span class="line">MySQL数据库文件位置：/usr/lib/mysql </span><br><span class="line"></span><br><span class="line">安装完成后，一是留意防火墙，打开相关端口，而是必须要对MySQL、Apache进行安全设置，避免安全漏洞。 </span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
       
   
   
@@ -983,6 +907,87 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zecheng.github.io/2013/06/17/%E5%85%B3%E4%BA%8E%E5%BF%98%E8%AE%B0ContOS%E5%AF%86%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="泽宬">
+      <meta itemprop="description" content="路虽遥,行必至.事虽难,做必成.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泽宬的技术博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2013/06/17/%E5%85%B3%E4%BA%8E%E5%BF%98%E8%AE%B0ContOS%E5%AF%86%E7%A0%81/" class="post-title-link" itemprop="url">关于忘记ContOS密码</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2013-06-17 22:41:39" itemprop="dateCreated datePublished" datetime="2013-06-17T22:41:39+08:00">2013-06-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LINUX/" itemprop="url" rel="index"><span itemprop="name">LINUX</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>126</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天弄虚拟机服务器,刚安装好的服务器,设置好的密码居然对,进到但用户模式 一开机就按a等一下 输入 single在等 用passwd命令改了好几次密码还是不让进 最后用 passwd -d 用户名 密码删除了在进居然好了… 不知道怎么回事 在用passwd更改密码吧 呵呵….</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1054,7 +1059,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">222</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1072,11 +1077,6 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-  </div>
 
 
 
