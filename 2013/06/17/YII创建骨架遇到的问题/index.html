@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"zecheng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="第一个问题 没有找到 php_mbstring.dll,因为这个应用程序未能启动。 解决方法：在php.ini文件中将 extension&#x3D;php_mbstring.dll 移动到 extension&#x3D;php_exif.dll 之前即可.原因就是exif要调用mbstring, 所以mbstring必须在前面. 第二个问题 不能加载 sqlite.dll文件因为刚下载好YII需要看一下环境是否可以">
+  <meta name="description" content="第一个问题 没有找到 php_mbstring.dll,因为这个应用程序未能启动。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YII创建骨架遇到的问题">
 <meta property="og:url" content="https://zecheng.github.io/2013/06/17/YII%E5%88%9B%E5%BB%BA%E9%AA%A8%E6%9E%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="泽宬的技术博客">
-<meta property="og:description" content="第一个问题 没有找到 php_mbstring.dll,因为这个应用程序未能启动。 解决方法：在php.ini文件中将 extension&#x3D;php_mbstring.dll 移动到 extension&#x3D;php_exif.dll 之前即可.原因就是exif要调用mbstring, 所以mbstring必须在前面. 第二个问题 不能加载 sqlite.dll文件因为刚下载好YII需要看一下环境是否可以">
+<meta property="og:description" content="第一个问题 没有找到 php_mbstring.dll,因为这个应用程序未能启动。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xnr.gongzuo.in/wp-content/uploads/2013/06/1-300x219.jpg">
 <meta property="og:image" content="http://xnr.gongzuo.in/wp-content/uploads/2013/06/2-300x147.jpg">
@@ -249,8 +249,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>第一个问题 没有找到 php_mbstring.dll,因为这个应用程序未能启动。</p>
-<p>解决方法：<br>在php.ini文件中将 extension=php_mbstring.dll 移动到 extension=php_exif.dll 之前即可.<br>原因就是exif要调用mbstring, 所以mbstring必须在前面.</p>
+        <p>第一个问题 没有找到 php_mbstring.dll,因为这个应用程序未能启动。<br> <span id="more"></span><br>解决方法：<br>在php.ini文件中将 extension=php_mbstring.dll 移动到 extension=php_exif.dll 之前即可.<br>原因就是exif要调用mbstring, 所以mbstring必须在前面.</p>
 <p>第二个问题 不能加载 sqlite.dll文件<br>因为刚下载好YII需要看一下环境是否可以运行YII(易) 结果如图我看 PDO PostgreSQL扩展模块    没通过就想让他通过就把PHP.ini文件改了<br>把pgsql放开了就出现了下面的情况 5555 其实没有这个数据库也可以. 长点记性 以后解决它 .多看提示!!!(英语不好……)<br><a target="_blank" rel="noopener" href="http://xnr.gongzuo.in/wp-content/uploads/2013/06/1.jpg"><img src="http://xnr.gongzuo.in/wp-content/uploads/2013/06/1-300x219.jpg" alt="1" width="300" height="219" class="alignnone size-medium wp-image-82" /></a></p>
 <p><a target="_blank" rel="noopener" href="http://xnr.gongzuo.in/wp-content/uploads/2013/06/2.jpg"><img src="http://xnr.gongzuo.in/wp-content/uploads/2013/06/2-300x147.jpg" alt="2" width="300" height="147" class="alignnone size-medium wp-image-83" /></a></p>
 <p><a target="_blank" rel="noopener" href="http://xnr.gongzuo.in/wp-content/uploads/2013/06/3.jpg"><img src="http://xnr.gongzuo.in/wp-content/uploads/2013/06/3-300x146.jpg" alt="3" width="300" height="146" class="alignnone size-medium wp-image-84" /></a><br>不能加载下面的数据库文件sqlite<br>extension=php_pdo_sqlite.dll<br>extension=php_pgsql.dll</p>
@@ -372,7 +371,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">222</span>
+          <span class="site-state-item-count">218</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -422,13 +421,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">817k</span>
+    <span title="站点总字数">676k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:23</span>
+    <span title="站点阅读时长">10:15</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

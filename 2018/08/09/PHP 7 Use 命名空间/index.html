@@ -233,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>376</span>
+              <span>365</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -253,10 +253,10 @@
 
       
         <p>命名空间分为3中<br>非混合模式Use声明 (相同种类型放到一起)<br>例:<span id="more"></span></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Packt</span>\&#123;<span class="title">Book</span>,<span class="title">EBook</span>,<span class="title">Video</span>&#125;  </span><br><span class="line"><span class="title">use</span> <span class="title">App</span>\<span class="title">Packt</span>\&#123;<span class="title">getBook</span>,<span class="title">saveBook</span>&#125; //&lt; ---(<span class="title">Function</span>)</span><br><span class="line"><span class="title">use</span> <span class="title">App</span>\<span class="title">Packt</span>\&#123;<span class="title">KEY</span>,<span class="title">NAME</span>&#125; //&lt;---(<span class="title">Const</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Packt</span>\&#123;<span class="title">Book</span>,<span class="title">EBook</span>,<span class="title">Video</span>&#125;  </span><br><span class="line"><span class="title">use</span> <span class="title">App</span>\<span class="title">Packt</span>\&#123;<span class="title">getBook</span>,<span class="title">saveBook</span>&#125; //&lt; ---(<span class="title">Function</span>)</span><br><span class="line"><span class="title">use</span> <span class="title">App</span>\<span class="title">Packt</span>\&#123;<span class="title">KEY</span>,<span class="title">NAME</span>&#125; //&lt;---(<span class="title">Const</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>混合模式Use声明<br>例:</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```php</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> App\Packt\&#123;</span><br><span class="line">Book,</span><br><span class="line">EBook,</span><br><span class="line">Video,</span><br><span class="line"><span class="keyword">function</span> <span class="title">getBook,</span></span><br><span class="line"><span class="keyword">function</span> <span class="title">saveBook,</span></span><br><span class="line">const KEY,</span><br><span class="line">const NAME</span><br><span class="line">&#125;  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Packt</span>\&#123;</span><br><span class="line"><span class="title">Book</span>,</span><br><span class="line"><span class="title">EBook</span>,</span><br><span class="line"><span class="title">Video</span>,</span><br><span class="line"><span class="title">function</span> <span class="title">getBook</span>,</span><br><span class="line"><span class="title">function</span> <span class="title">saveBook</span>,</span><br><span class="line"><span class="title">const</span> <span class="title">KEY</span>,</span><br><span class="line"><span class="title">const</span> <span class="title">NAME</span></span><br><span class="line">&#125;  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>符号模式Use 声明</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Packt</span>\&#123;</span><br><span class="line"><span class="title">B</span>\<span class="title">Book</span>,</span><br><span class="line"><span class="title">E</span>\<span class="title">EBook</span>,</span><br><span class="line"><span class="title">V</span>\<span class="title">Video</span></span><br><span class="line">&#125;  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -378,7 +378,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">222</span>
+          <span class="site-state-item-count">218</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -428,13 +428,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">817k</span>
+    <span title="站点总字数">676k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:23</span>
+    <span title="站点阅读时长">10:15</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"zecheng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="12345678910111213141516&lt;pre class&#x3D;&quot;brush:php&quot;&gt;function random($length) &amp;#123;     $hash &#x3D; &quot;&quot;;      $chars &#x3D; &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwx">
+  <meta name="description" content="random() 函数：来自DZ源代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="random() 函数：来自DZ源代码">
 <meta property="og:url" content="https://zecheng.github.io/2013/06/17/random()%20%E5%87%BD%E6%95%B0%EF%BC%9A%E6%9D%A5%E8%87%AADZ%E6%BA%90%E4%BB%A3%E7%A0%81/index.html">
 <meta property="og:site_name" content="泽宬的技术博客">
-<meta property="og:description" content="12345678910111213141516&lt;pre class&#x3D;&quot;brush:php&quot;&gt;function random($length) &amp;#123;     $hash &#x3D; &quot;&quot;;      $chars &#x3D; &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwx">
+<meta property="og:description" content="random() 函数：来自DZ源代码">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2013-06-17T14:00:05.000Z">
 <meta property="article:modified_time" content="2013-06-17T14:00:05.000Z">
@@ -226,7 +226,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>685</span>
+              <span>703</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -245,7 +245,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre class=&quot;brush:php&quot;&gt;function random($length) &#123;</span><br><span class="line">     <span class="variable">$hash</span> = <span class="string">&quot;&quot;</span>; </span><br><span class="line">     <span class="variable">$chars</span> = <span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz&quot;</span>; </span><br><span class="line">     <span class="variable">$max</span> = strlen(<span class="variable">$chars</span>) - <span class="number">1</span>; </span><br><span class="line">     PHP_VERSION &lt; <span class="string">&quot;4.2.0&quot;</span> &amp;amp;&amp;amp; mt_srand((<span class="keyword">double</span>)microtime() * <span class="number">1000000</span>); </span><br><span class="line">     <span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$length</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">         <span class="variable">$hash</span> .= <span class="variable">$chars</span>[mt_rand(<span class="number">0</span>, <span class="variable">$max</span>)]; </span><br><span class="line">         &#125; </span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$hash</span>;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">// 假定密码为 mypassword000$password = &quot;mypassword000&quot;;</span></span><br><span class="line"><span class="comment">// 生成随机字符串 $salt$salt = substr(uniqid(rand()), -6);</span></span><br><span class="line"><span class="comment">// UC 的二次MD5加密$password_uc = md5(md5($password).$salt);</span></span><br><span class="line"><span class="comment">// DZ数据表的“密码”字串$password_dz = md5(random(10));</span></span><br><span class="line"><span class="comment">// 将 $password_uc 和 $salt 写入 ucenter_members 表中，$password_dz 写入 discuz_common_member 表中&lt;/pre&gt;</span></span><br><span class="line">&lt;br&gt; </span><br></pre></td></tr></table></figure>
+        <p>random() 函数：来自DZ源代码</p>
+<span id="more"></span>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre class=&quot;brush:php&quot;&gt;function random($length) &#123;</span><br><span class="line">     <span class="variable">$hash</span> = <span class="string">&quot;&quot;</span>; </span><br><span class="line">     <span class="variable">$chars</span> = <span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz&quot;</span>; </span><br><span class="line">     <span class="variable">$max</span> = strlen(<span class="variable">$chars</span>) - <span class="number">1</span>; </span><br><span class="line">     PHP_VERSION &lt; <span class="string">&quot;4.2.0&quot;</span> &amp;amp;&amp;amp; mt_srand((<span class="keyword">double</span>)microtime() * <span class="number">1000000</span>); </span><br><span class="line">     <span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$length</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">         <span class="variable">$hash</span> .= <span class="variable">$chars</span>[mt_rand(<span class="number">0</span>, <span class="variable">$max</span>)]; </span><br><span class="line">         &#125; </span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$hash</span>;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">// 假定密码为 mypassword000$password = &quot;mypassword000&quot;;</span></span><br><span class="line"><span class="comment">// 生成随机字符串 $salt$salt = substr(uniqid(rand()), -6);</span></span><br><span class="line"><span class="comment">// UC 的二次MD5加密$password_uc = md5(md5($password).$salt);</span></span><br><span class="line"><span class="comment">// DZ数据表的“密码”字串$password_dz = md5(random(10));</span></span><br><span class="line"><span class="comment">// 将 $password_uc 和 $salt 写入 ucenter_members 表中，$password_dz 写入 discuz_common_member 表中&lt;/pre&gt;</span></span><br><span class="line">&lt;br&gt; </span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -364,7 +366,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">222</span>
+          <span class="site-state-item-count">218</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -414,13 +416,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">817k</span>
+    <span title="站点总字数">676k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:23</span>
+    <span title="站点阅读时长">10:15</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

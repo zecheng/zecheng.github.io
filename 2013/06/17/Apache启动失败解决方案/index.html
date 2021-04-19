@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"zecheng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="解决方法：1.确定和IIS不使用相同的端口,IIS默认用的80,apache用的端口两者要错开;2.a.网上邻居-&gt;;查看网络连接-&gt;本地连接(你正在使用的那个连接,一般是这个名字)-&gt;;右键点它选”属性”-&gt;;选中”internet协议(TCP&#x2F;IP)">
+  <meta name="description" content="解决方法：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apache启动失败解决方案">
 <meta property="og:url" content="https://zecheng.github.io/2013/06/17/Apache%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="泽宬的技术博客">
-<meta property="og:description" content="解决方法：1.确定和IIS不使用相同的端口,IIS默认用的80,apache用的端口两者要错开;2.a.网上邻居-&gt;;查看网络连接-&gt;本地连接(你正在使用的那个连接,一般是这个名字)-&gt;;右键点它选”属性”-&gt;;选中”internet协议(TCP&#x2F;IP)">
+<meta property="og:description" content="解决方法：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2013-06-17T15:05:42.000Z">
 <meta property="article:modified_time" content="2013-06-18T04:55:36.000Z">
@@ -252,7 +252,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>解决方法：<br>1.确定和IIS不使用相同的端口,IIS默认用的80,apache用的端口两者要错开;<br>2.<br>a.网上邻居-&gt;;查看网络连接-&gt;本地连接(你正在使用的那个连接,一般是这个名字)-&gt;;右键点它选”属性”-&gt;;选中”internet协议(TCP/IP)<span id="more"></span><br>-&gt;;属性-&gt;;高级-&gt;;切换到”wins”标签-&gt;;去掉”启用LMhosts查询”前的勾.<br>b.控制面版-&gt;;windows防火墙-&gt;;高级标签-&gt;;本地连接设置-&gt;;服务的标签里勾选”安全Web服务器(HTTPS)”,按两次确定.重启apache服务.</p>
+        <p>解决方法：<span id="more"></span><br>1.确定和IIS不使用相同的端口,IIS默认用的80,apache用的端口两者要错开;<br>2.<br>a.网上邻居-&gt;;查看网络连接-&gt;本地连接(你正在使用的那个连接,一般是这个名字)-&gt;;右键点它选”属性”-&gt;;选中”internet协议(TCP/IP)<br>-&gt;;属性-&gt;;高级-&gt;;切换到”wins”标签-&gt;;去掉”启用LMhosts查询”前的勾.<br>b.控制面版-&gt;;windows防火墙-&gt;;高级标签-&gt;;本地连接设置-&gt;;服务的标签里勾选”安全Web服务器(HTTPS)”,按两次确定.重启apache服务.</p>
 <ul>
 <li>-.大晚上的在自己本本上装Apache。老出问题，不能start .<br>还好解决了，呵呵。<br>输入 ：127.0.0.1之后：<br>It works!</li>
 </ul>
@@ -374,7 +374,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">222</span>
+          <span class="site-state-item-count">218</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -424,13 +424,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">817k</span>
+    <span title="站点总字数">676k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:23</span>
+    <span title="站点阅读时长">10:15</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

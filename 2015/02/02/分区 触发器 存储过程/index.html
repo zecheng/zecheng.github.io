@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"zecheng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="– 分区 – hashCREATE TABLE p_hash(id INT,gid INT)PARTITION BY HASH(gid)PARTITIONS 4;– key">
+  <meta name="description" content="分区 触发器 存储过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分区 触发器 存储过程">
 <meta property="og:url" content="https://zecheng.github.io/2015/02/02/%E5%88%86%E5%8C%BA%20%E8%A7%A6%E5%8F%91%E5%99%A8%20%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/index.html">
 <meta property="og:site_name" content="泽宬的技术博客">
-<meta property="og:description" content="– 分区 – hashCREATE TABLE p_hash(id INT,gid INT)PARTITION BY HASH(gid)PARTITIONS 4;– key">
+<meta property="og:description" content="分区 触发器 存储过程">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-02-02T09:50:15.000Z">
 <meta property="article:modified_time" content="2015-03-16T04:11:41.000Z">
@@ -233,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>634</span>
+              <span>810</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -252,19 +252,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>– 分区</p>
-<p>– hash<br>CREATE TABLE p_hash(<br>id INT,<br>gid INT<br>)<br>PARTITION BY HASH(gid)<br>PARTITIONS 4;<br>– key<span id="more"></span></p>
-<p>CREATE TABLE p_key(<br>id INT,<br>gid INT<br>)<br>PARTITION BY KEY(gid)<br>PARTITIONS 3;</p>
-<p>– range<br>CREATE TABLE p_range(<br>id INT,<br>gid INT<br>)<br>PARTITION BY RANGE(gid)(<br>PARTITION p1 VALUES LESS THAN (1),<br>PARTITION p2 VALUES LESS THAN maxvalue<br>);</p>
-<p>– list<br>CREATE TABLE p_list(<br>id INT,<br>gid INT<br>)<br>PARTITION BY LIST(gid)(<br>PARTITION p1 VALUES IN (1),<br>PARTITION p2 VALUES IN (2)<br>);</p>
-<p>– 分表</p>
-<p>SHOW TRIGGERS<br>– 触发器<br>DELIMITER $<br>CREATE TRIGGER tar<br>AFTER<br>INSERT<br>ON p_hash<br>FOR EACH ROW<br>BEGIN<br>INSERT INTO p_list VALUES(1,2);<br>END$<br>DELIMITER ;</p>
-<p>– 存储过程</p>
-<p>SHOW PROCEDURE STATUS;</p>
-<p>DELIMITER $<br>CREATE PROCEDURE test()<br>BEGIN<br>DECLARE b INT DEFAULT ‘0’;<br>WHILE b &lt; 3 DO<br>SET b := b+1;<br>SELECT b;<br>END WHILE;<br>END$<br>DELIMITER ;</p>
-<p>CALL test();</p>
-<p>–</p>
-
+        <h3 id="分区-触发器-存储过程"><a href="#分区-触发器-存储过程" class="headerlink" title="分区 触发器 存储过程"></a>分区 触发器 存储过程</h3><span id="more"></span>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 分区</span></span><br><span class="line"><span class="comment">-- hash</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> p_hash(</span><br><span class="line">id <span class="type">INT</span>,</span><br><span class="line">gid <span class="type">INT</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">PARTITION</span> <span class="keyword">BY</span> HASH(gid)</span><br><span class="line">PARTITIONS <span class="number">4</span>;</span><br><span class="line"><span class="comment">-- key&lt;!--more--&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> p_key(</span><br><span class="line">id <span class="type">INT</span>,</span><br><span class="line">gid <span class="type">INT</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">PARTITION</span> <span class="keyword">BY</span> KEY(gid)</span><br><span class="line">PARTITIONS <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- range</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> p_range(</span><br><span class="line">id <span class="type">INT</span>,</span><br><span class="line">gid <span class="type">INT</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">PARTITION</span> <span class="keyword">BY</span> <span class="keyword">RANGE</span>(gid)(</span><br><span class="line"><span class="keyword">PARTITION</span> p1 <span class="keyword">VALUES</span> LESS THAN (<span class="number">1</span>),</span><br><span class="line"><span class="keyword">PARTITION</span> p2 <span class="keyword">VALUES</span> LESS THAN maxvalue</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- list</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> p_list(</span><br><span class="line">id <span class="type">INT</span>,</span><br><span class="line">gid <span class="type">INT</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">PARTITION</span> <span class="keyword">BY</span> LIST(gid)(</span><br><span class="line"><span class="keyword">PARTITION</span> p1 <span class="keyword">VALUES</span> <span class="keyword">IN</span> (<span class="number">1</span>),</span><br><span class="line"><span class="keyword">PARTITION</span> p2 <span class="keyword">VALUES</span> <span class="keyword">IN</span> (<span class="number">2</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 分表</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SHOW</span> TRIGGERS</span><br><span class="line"><span class="comment">-- 触发器</span></span><br><span class="line">DELIMITER $</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> tar</span><br><span class="line">AFTER</span><br><span class="line"><span class="keyword">INSERT</span></span><br><span class="line"><span class="keyword">ON</span> p_hash</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="type">ROW</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> p_list <span class="keyword">VALUES</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line"><span class="keyword">END</span>$</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 存储过程</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">PROCEDURE</span> STATUS;</span><br><span class="line"></span><br><span class="line">DELIMITER $</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> test()</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"><span class="keyword">DECLARE</span> b <span class="type">INT</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">WHILE b <span class="operator">&lt;</span> <span class="number">3</span> DO</span><br><span class="line"><span class="keyword">SET</span> b :<span class="operator">=</span> b<span class="operator">+</span><span class="number">1</span>;</span><br><span class="line"><span class="keyword">SELECT</span> b;</span><br><span class="line"><span class="keyword">END</span> WHILE;</span><br><span class="line"><span class="keyword">END</span>$</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CALL</span> test();</span><br><span class="line"><span class="comment">--</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -367,6 +356,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%8C%BA-%E8%A7%A6%E5%8F%91%E5%99%A8-%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">分区 触发器 存储过程</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -382,7 +372,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">222</span>
+          <span class="site-state-item-count">218</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -432,13 +422,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">817k</span>
+    <span title="站点总字数">676k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:23</span>
+    <span title="站点阅读时长">10:15</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

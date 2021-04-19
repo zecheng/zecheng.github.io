@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"zecheng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="show open tables where In_use&gt;0;  查看被锁的表">
+  <meta name="description" content="MySql锁表解决(死)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySql锁表解决(死)">
 <meta property="og:url" content="https://zecheng.github.io/2016/06/01/MySql%E9%94%81%E8%A1%A8%E8%A7%A3%E5%86%B3(%E6%AD%BB)/index.html">
 <meta property="og:site_name" content="泽宬的技术博客">
-<meta property="og:description" content="show open tables where In_use&gt;0;  查看被锁的表">
+<meta property="og:description" content="MySql锁表解决(死)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-05-31T23:31:19.000Z">
 <meta property="article:modified_time" content="2016-05-31T23:33:03.000Z">
@@ -227,7 +227,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>834</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -246,16 +246,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <ol>
-<li>show open tables where In_use&gt;0;  查看被锁的表<span id="more"></span><br>In_use show how many threads are currently using this table, meaning have it locked or waiting on the table lock for this table to lock it.</li>
-<li>show processlist;  查看所有执行线程</li>
-</ol>
-<p>如果在线上不慎执行了一个复杂sql，ctrl + c不一定会终止sql在服务端的执行，可以通过以上两个sql，检查表是否被锁，以及执行线程是否终结。如果还在执行，手动kill一下线程</p>
-<p>演示:(id 7是我用python 来连过来的一个会话,虽然是状态是sleep,为了演示，干掉他)</p>
-<p>mysql&gt; show processlist;<br>+—-+——+———–+——+———+——+——-+——————+<br>| Id | User | Host      | db   | Command | Time | State | Info             |<br>+—-+——+———–+——+———+——+——-+——————+<br>|  7 | root | localhost | yy   | Sleep   |  154 |       | NULL             |<br>|  8 | root | localhost | NULL | Query   |    0 | NULL  | show processlist |<br>+—-+——+———–+——+———+——+——-+——————+<br>2 rows in set (0.00 sec)</p>
-<p>mysql&gt; kill 7;</p>
-<p>mysql&gt; show processlist;<br>+—-+——+———–+——+———+——+——-+——————+<br>| Id | User | Host      | db   | Command | Time | State | Info             |<br>+—-+——+———–+——+———+——+——-+——————+<br>|  8 | root | localhost | NULL | Query   |    0 | NULL  | show processlist |<br>+—-+——+———–+——+———+——+——-+——————+<br>1 row in set (0.00 sec)</p>
-
+        <p>MySql锁表解决(死)</p>
+<span id="more"></span>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="keyword">show</span> <span class="keyword">open</span> tables <span class="keyword">where</span> In_use<span class="operator">&gt;</span><span class="number">0</span>;  查看被锁的表</span><br><span class="line">In_use <span class="keyword">show</span> how many threads <span class="keyword">are</span> currently <span class="keyword">using</span> this <span class="keyword">table</span>, meaning have it locked <span class="keyword">or</span> waiting <span class="keyword">on</span> the <span class="keyword">table</span> lock <span class="keyword">for</span> this <span class="keyword">table</span> <span class="keyword">to</span> lock it.</span><br><span class="line"><span class="number">2.</span><span class="keyword">show</span> processlist;  查看所有执行线程</span><br><span class="line"></span><br><span class="line">如果在线上不慎执行了一个复杂<span class="keyword">sql</span>，ctrl <span class="operator">+</span> c不一定会终止<span class="keyword">sql</span>在服务端的执行，可以通过以上两个<span class="keyword">sql</span>，检查表是否被锁，以及执行线程是否终结。如果还在执行，手动kill一下线程</span><br><span class="line"></span><br><span class="line">演示:(id <span class="number">7</span>是我用python 来连过来的一个会话,虽然是状态是sleep,为了演示，干掉他)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> processlist;</span><br><span class="line"><span class="operator">+</span><span class="comment">----+------+-----------+------+---------+------+-------+------------------+</span></span><br><span class="line"><span class="operator">|</span> Id <span class="operator">|</span> <span class="keyword">User</span> <span class="operator">|</span> Host      <span class="operator">|</span> db   <span class="operator">|</span> Command <span class="operator">|</span> <span class="type">Time</span> <span class="operator">|</span> State <span class="operator">|</span> Info             <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----+------+-----------+------+---------+------+-------+------------------+</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7</span> <span class="operator">|</span> root <span class="operator">|</span> localhost <span class="operator">|</span> yy   <span class="operator">|</span> Sleep   <span class="operator">|</span>  <span class="number">154</span> <span class="operator">|</span>       <span class="operator">|</span> <span class="keyword">NULL</span>             <span class="operator">|</span> </span><br><span class="line"><span class="operator">|</span>  <span class="number">8</span> <span class="operator">|</span> root <span class="operator">|</span> localhost <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> Query   <span class="operator">|</span>    <span class="number">0</span> <span class="operator">|</span> <span class="keyword">NULL</span>  <span class="operator">|</span> <span class="keyword">show</span> processlist <span class="operator">|</span> </span><br><span class="line"><span class="operator">+</span><span class="comment">----+------+-----------+------+---------+------+-------+------------------+</span></span><br><span class="line"><span class="number">2</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> kill <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> processlist;</span><br><span class="line"><span class="operator">+</span><span class="comment">----+------+-----------+------+---------+------+-------+------------------+</span></span><br><span class="line"><span class="operator">|</span> Id <span class="operator">|</span> <span class="keyword">User</span> <span class="operator">|</span> Host      <span class="operator">|</span> db   <span class="operator">|</span> Command <span class="operator">|</span> <span class="type">Time</span> <span class="operator">|</span> State <span class="operator">|</span> Info             <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----+------+-----------+------+---------+------+-------+------------------+</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">8</span> <span class="operator">|</span> root <span class="operator">|</span> localhost <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> Query   <span class="operator">|</span>    <span class="number">0</span> <span class="operator">|</span> <span class="keyword">NULL</span>  <span class="operator">|</span> <span class="keyword">show</span> processlist <span class="operator">|</span> </span><br><span class="line"><span class="operator">+</span><span class="comment">----+------+-----------+------+---------+------+-------+------------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -373,7 +366,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">222</span>
+          <span class="site-state-item-count">218</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -423,13 +416,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">817k</span>
+    <span title="站点总字数">676k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:23</span>
+    <span title="站点阅读时长">10:15</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

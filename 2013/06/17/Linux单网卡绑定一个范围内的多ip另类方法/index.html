@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"zecheng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="好多教程都是说要建立ifcfg-eth0:x ~ ifcfg-eth0:x个文件，如果绑定超过几十个上百个ip还是按这样操作就是一件无聊的事情了。如果绑定的ip是同一个段的，那就很容易了，其实用一个文件就行了 123456789101112131415vi &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0-range0   DEVICE&#x3D;eth0   BOOTPR">
+  <meta name="description" content="好多教程都是说要建立ifcfg-eth0:x ~ ifcfg-eth0:x个文件，如果绑定超过几十个上百个ip还是按这样操作就是一件无聊的事情了。如果绑定的ip是同一个段的，那就很容易了，其实用一个文件就行了">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux单网卡绑定一个范围内的多ip另类方法">
 <meta property="og:url" content="https://zecheng.github.io/2013/06/17/Linux%E5%8D%95%E7%BD%91%E5%8D%A1%E7%BB%91%E5%AE%9A%E4%B8%80%E4%B8%AA%E8%8C%83%E5%9B%B4%E5%86%85%E7%9A%84%E5%A4%9Aip%E5%8F%A6%E7%B1%BB%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="泽宬的技术博客">
-<meta property="og:description" content="好多教程都是说要建立ifcfg-eth0:x ~ ifcfg-eth0:x个文件，如果绑定超过几十个上百个ip还是按这样操作就是一件无聊的事情了。如果绑定的ip是同一个段的，那就很容易了，其实用一个文件就行了 123456789101112131415vi &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0-range0   DEVICE&#x3D;eth0   BOOTPR">
+<meta property="og:description" content="好多教程都是说要建立ifcfg-eth0:x ~ ifcfg-eth0:x个文件，如果绑定超过几十个上百个ip还是按这样操作就是一件无聊的事情了。如果绑定的ip是同一个段的，那就很容易了，其实用一个文件就行了">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2013-06-17T14:49:07.000Z">
 <meta property="article:modified_time" content="2013-06-17T14:49:07.000Z">
@@ -245,7 +245,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>好多教程都是说要建立ifcfg-eth0:x ~ ifcfg-eth0:x个文件，如果绑定超过几十个上百个ip还是按这样操作就是一件无聊的事情了。如果绑定的ip是同一个段的，那就很容易了，其实用一个文件就行了</p>
+        <p>好多教程都是说要建立ifcfg-eth0:x ~ ifcfg-eth0:x个文件，如果绑定超过几十个上百个ip还是按这样操作就是一件无聊的事情了。如果绑定的ip是同一个段的，那就很容易了，其实用一个文件就行了<span id="more"></span></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-eth0-range0</span><br><span class="line"></span><br><span class="line">   DEVICE=eth0</span><br><span class="line">   BOOTPROTO=static</span><br><span class="line">   HWADDR=00:C0:9F:33:7D:88 #你的网卡mac地址，也可不加上</span><br><span class="line">   ONBOOT=yes</span><br><span class="line">   TYPE=Ethernet</span><br><span class="line">   IPADDR_START=192.168.0.2 #绑定的同一段的起始ip</span><br><span class="line">   IPADDR_END=192.168.0.6 #绑定的同一段的最后一个ip</span><br><span class="line">   CLONENUM_START=0 #0表示以eth0：0开始，1表示以eth0：1开始，以此类推</span><br><span class="line">   GATEWAY=192.168.0.1</span><br><span class="line">   NETMASK=255.255.255.0</span><br><span class="line">   NO_ALIASROUTING=yes</span><br><span class="line"></span><br><span class="line">   用IPADDR_START和IPADDR_END指定范围就成</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -365,7 +365,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">222</span>
+          <span class="site-state-item-count">218</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -415,13 +415,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">817k</span>
+    <span title="站点总字数">676k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:23</span>
+    <span title="站点阅读时长">10:15</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

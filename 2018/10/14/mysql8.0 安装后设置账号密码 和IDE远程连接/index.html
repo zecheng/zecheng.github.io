@@ -226,14 +226,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -245,44 +245,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>如果不是第一次安装有可能遇到mysql密码加密问题<br>到 /usr/local/var 下删除 mysql数据库</p>
+        <p>如果不是第一次安装有可能遇到mysql密码加密问题到 /usr/local/var 下删除 mysql数据库</p>
 <span id="more"></span>
 
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql</span><br><span class="line">安装完成后</span><br><span class="line">执行</span><br><span class="line">mysql_secure_installation</span><br><span class="line">第一次安装输入新密码 还会提示你密码强度自己选就可以</span><br><span class="line">第二次执行mysql_secure_installation就需要输入上一次的密码</span><br><span class="line">提示 ：在提示输入 Press y|Y for Yes, any other key for No 输入No的时候一定要写全</span><br><span class="line">----</span><br><span class="line">Securing the MySQL server deployment.</span><br><span class="line"></span><br><span class="line">Enter password for user root:</span><br><span class="line">The &#x27;validate_password&#x27; component is installed on the server.</span><br><span class="line">The subsequent steps will run with the existing configuration</span><br><span class="line">of the component.</span><br><span class="line">Using existing password for root.</span><br><span class="line"></span><br><span class="line">Estimated strength of the password: 100</span><br><span class="line">Change the password for root ? ((Press y|Y for Yes, any other key for No) : y</span><br><span class="line">是否修改密码</span><br><span class="line">----</span><br><span class="line"></span><br><span class="line">----</span><br><span class="line">By default, a MySQL installation has an anonymous user, allowing anyone</span><br><span class="line"></span><br><span class="line">to log into MySQL without having to have a user account created for</span><br><span class="line"></span><br><span class="line">them.  This is intended only for testing, and to make the installation</span><br><span class="line"></span><br><span class="line">go a bit smoother.  You should remove them before moving into a</span><br><span class="line"></span><br><span class="line">production environment.</span><br><span class="line"></span><br><span class="line">Remove anonymous users? [Y/n] </span><br><span class="line"> 生产环境建议删除系统创建的匿名用户  Y</span><br><span class="line">----</span><br><span class="line"></span><br><span class="line">----</span><br><span class="line">Normally, root should only be allowed to connect from &#x27;localhost&#x27;.  This</span><br><span class="line"></span><br><span class="line">ensures that someone cannot guess at the root password from the network.</span><br><span class="line"></span><br><span class="line">Disallow root login remotely? [Y/n] </span><br><span class="line"> 禁止root用户远程登录  Y</span><br><span class="line">----</span><br><span class="line"></span><br><span class="line">----</span><br><span class="line">By default, MySQL comes with a database named &#x27;test&#x27; that anyone can</span><br><span class="line"></span><br><span class="line">access.  This is also intended only for testing, and should be removed</span><br><span class="line"></span><br><span class="line">before moving into a production environment.</span><br><span class="line"></span><br><span class="line">Remove test database and access to it? [Y/n] </span><br><span class="line"> 删除test数据库  Y</span><br><span class="line">----</span><br><span class="line"></span><br><span class="line">----</span><br><span class="line">Reloading the privilege tables will ensure that all changes made so far</span><br><span class="line"></span><br><span class="line">will take effect immediately.</span><br><span class="line"></span><br><span class="line">Reload privilege tables now? [Y/n] </span><br><span class="line"> 重载权限表  Y</span><br><span class="line">----</span><br><span class="line"></span><br><span class="line">以上选择根据自己的选项输入</span><br><span class="line"></span><br><span class="line">到此有个问题不能远程连接IDE</span><br><span class="line">解决方法：</span><br><span class="line">mysql -uroot -p (输入自己的密码)</span><br><span class="line">use mysql;</span><br><span class="line"></span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;password&#x27; PASSWORD EXPIRE NEVER;</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;password&#x27;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line">正常可以连接了</span><br></pre></td></tr></table></figure>
 
-<p>brew install mysql</p>
-<p>安装完成后<br>执行<br>mysql_secure_installation<br>第一次安装输入新密码 还会提示你密码强度自己选就可以<br>第二次执行mysql_secure_installation就需要输入上一次的密码<br>提示 ：在提示输入 Press y|Y for Yes, any other key for No 输入No的时候一定要写全</p>
-<hr>
-<p>Securing the MySQL server deployment.</p>
-<p>Enter password for user root:<br>The ‘validate_password’ component is installed on the server.<br>The subsequent steps will run with the existing configuration<br>of the component.<br>Using existing password for root.</p>
-<p>Estimated strength of the password: 100<br>Change the password for root ? ((Press y|Y for Yes, any other key for No) : y<br>是否修改密码</p>
-<hr>
-<hr>
-<p>By default, a MySQL installation has an anonymous user, allowing anyone</p>
-<p>to log into MySQL without having to have a user account created for</p>
-<p>them.  This is intended only for testing, and to make the installation</p>
-<p>go a bit smoother.  You should remove them before moving into a</p>
-<p>production environment.</p>
-<p>Remove anonymous users? [Y/n]<br> 生产环境建议删除系统创建的匿名用户  Y</p>
-<hr>
-<hr>
-<p>Normally, root should only be allowed to connect from ‘localhost’.  This</p>
-<p>ensures that someone cannot guess at the root password from the network.</p>
-<p>Disallow root login remotely? [Y/n]<br> 禁止root用户远程登录  Y</p>
-<hr>
-<hr>
-<p>By default, MySQL comes with a database named ‘test’ that anyone can</p>
-<p>access.  This is also intended only for testing, and should be removed</p>
-<p>before moving into a production environment.</p>
-<p>Remove test database and access to it? [Y/n]<br> 删除test数据库  Y</p>
-<hr>
-<hr>
-<p>Reloading the privilege tables will ensure that all changes made so far</p>
-<p>will take effect immediately.</p>
-<p>Reload privilege tables now? [Y/n]<br> 重载权限表  Y</p>
-<hr>
-<p>以上选择根据自己的选项输入</p>
-<p>到此有个问题不能远程连接IDE<br>解决方法：<br>mysql -uroot -p (输入自己的密码)<br>use mysql;</p>
-<p>ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘password’ PASSWORD EXPIRE NEVER;<br>ALTER USER ‘root’@’localhost’ IDENTIFIED WITH mysql_native_password BY ‘password’;<br>FLUSH PRIVILEGES;<br>正常可以连接了</p>
 <p>参考：<br><a target="_blank" href="https://blog.csdn.net/qq_26789969/article/details/82686625" rel="noopener noopener">Navicat 连接 MySql8.0（ You are not allowed to create a user with GRANT）</a><br><a href="https://www.cnblogs.com/sunny18/p/8684861.html" rel="noopener" target="_blank">mysql_secure_installation 安全安装（用于生产环境设置）</a></p>
 
     </div>
@@ -402,7 +369,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">222</span>
+          <span class="site-state-item-count">218</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -452,13 +419,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">817k</span>
+    <span title="站点总字数">676k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:23</span>
+    <span title="站点阅读时长">10:15</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

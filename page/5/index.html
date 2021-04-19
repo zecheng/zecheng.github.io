@@ -325,8 +325,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>JavaScript 标准参考教程（alpha）: <a target="_blank" rel="noopener" href="http://javascript.ruanyifeng.com/">http://javascript.ruanyifeng.com/</a><br>很多教程 GIT JS :<a target="_blank" rel="noopener" href="http://www.liaoxuefeng.com/">http://www.liaoxuefeng.com</a><br>开发风雪之隅PHP:<br><a target="_blank" rel="noopener" href="http://demon.at/">http://demon.at/</a><br><a target="_blank" rel="noopener" href="http://www.laruence.com/">http://www.laruence.com/</a><br>数码维基:<br><a target="_blank" rel="noopener" href="http://codex.wiki/">http://codex.wiki/</a></p>
-
+          <p>JavaScript 标准参考教程（alpha）: <a target="_blank" rel="noopener" href="http://javascript.ruanyifeng.com/">http://javascript.ruanyifeng.com/</a>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/11/19/%E8%8E%B7%E5%8F%96%E7%9F%A5%E8%AF%86%E7%9A%84%E7%BD%91%E7%AB%99/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -483,14 +490,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>523</span>
+              <span>2.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -502,81 +509,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <code>
-/* PHP
-$conditions = array('price','color','metal');//要进行筛选的字段放在这里
-$price = $color = $metal='';//先给需要筛选的字段赋空值，这些值将输出到页面的hidden fileds 中
-//以下循环给已经进行的筛选赋值，以便能够在下一次筛选中保留
-foreach($conditions as $value)&#123;
-    if(isset($_GET[$value]))&#123;
-        $$value = $_GET[$value];
-    &#125;
-&#125;
-//以下是演示输出$_GET数据
-print_r($_GET);
-*/
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>分类筛选演示</title>
-<style type="text/css">
-body&#123;font-size:14px;font-family:Tahoma,"宋体"&#125;
-</style>
-<script type="text/javascript">
-/*
-function Filter(a,b)&#123;
-    var $ = function(e)&#123;return document.getElementById(e);&#125;
-    var ipts = $('filterForm').getElementsByTagName('input'),result=[];
-    for(var i=0,l=ipts.length;i<l;i++)&#123;
-        if(ipts[i].getAttribute('to')=='filter')&#123;
-            result.push(ipts[i]);
-        &#125;
-    &#125;
-    if($(a))&#123;
-        $(a).value = b;
-        for(var j=0,len=result.length;j<len;j++)&#123;
-            if(result[j].value=='')&#123;
-                result[j].parentNode.removeChild(result[j]);
-            &#125;
-        &#125;
-        document.forms['filterForm'].submit();
-    &#125;
-    return false;
-&#125;
-*/
-</script>
-</head>
-<body>
-<form id="filterForm" action="index.php" method="GET">
-<!--
-form的id 要和程序里统一
-为避免与其他使用的隐藏域冲突，添加了to属性
-以下是筛选字段隐藏域 
-需要筛选的隐藏域需要加 to 属性 
--->
-<!--
-<input to="filter" type="hidden" id="price" name="price" value="<?=$price?>" />
-<input to="filter" type="hidden" id="color" name="color" value="<?=$color?>" />
-<input to="filter" type="hidden" id="metal" name="metal" value="<?=$metal?>" />
-</form>
--->
-<!--
-要筛选的属性可以由程序生成，注意规律！
--->
-<!--
-价格：<a href="javascript:Filter('price','100-1000');">100-1000</a>
-      <a href="javascript:Filter('price','1001-2000');">1001-2000</a>
-      <a href="javascript:Filter('price','2001-3000');">2001-3000</a><br/>
-颜色：<a href="javascript:Filter('color','red');">红色</a>
-      <a href="javascript:Filter('color','blue');">蓝色</a><br />
-材质：<a href="javascript:Filter('metal','gold');">纯金</a>
-      <a href="javascript:Filter('metal','silver');">纯银</a><br />
--->
-</body>
-</html>
-</code>
+          <h3 id="筛选器"><a href="#筛选器" class="headerlink" title="筛选器"></a>筛选器</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/11/17/%E7%AD%9B%E9%80%89%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -664,8 +605,14 @@ form的id 要和程序里统一
 
       
           <p>返回 分钟/小时/天/年月日</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">timeFormat</span>(<span class="params"><span class="variable">$timeInt</span>, <span class="variable">$format</span> = <span class="string">&#x27;y年m月d日&#x27;</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">       <span class="comment">//未添加判断</span></span><br><span class="line">        <span class="variable">$d</span> = time() - strtotime(<span class="variable">$timeInt</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$d</span> &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$d</span> &lt; <span class="number">60</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&#x27;1分钟前&#x27;</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="variable">$d</span> &lt; <span class="number">3600</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> floor(<span class="variable">$d</span> / <span class="number">60</span>) . <span class="string">&#x27;分钟前&#x27;</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="variable">$d</span> &lt; <span class="number">86400</span>) &#123;</span><br><span class="line">                        <span class="keyword">return</span> floor(<span class="variable">$d</span> / <span class="number">3600</span>) . <span class="string">&#x27;小时前&#x27;</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span> (<span class="variable">$d</span> &lt; <span class="number">604800</span>) &#123; <span class="comment">// 7天内</span></span><br><span class="line">                            <span class="keyword">return</span> floor(<span class="variable">$d</span> / <span class="number">86400</span>) . <span class="string">&#x27;天以前&#x27;</span>;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="keyword">return</span> date(<span class="variable">$format</span>, strtotime(<span class="variable">$timeInt</span>));</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/11/11/%E8%BF%94%E5%9B%9E%20%E5%88%86%E9%92%9F%7C%E5%B0%8F%E6%97%B6%7C%E5%A4%A9%7C%E5%B9%B4%E6%9C%88%E6%97%A5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -745,7 +692,15 @@ form的id 要和程序里统一
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">&#x27;BASE_PATH&#x27;</span>, dirname(<span class="keyword">__FILE__</span>).DIRECTORY_SEPARATOR);<span class="comment">//系统根目录</span></span><br><span class="line">define(<span class="string">&#x27;MODULE_PATH&#x27;</span>, BASE_PATH.<span class="string">&#x27;modules&#x27;</span>.DIRECTORY_SEPARATOR);<span class="comment">//模块目录</span></span><br><span class="line">  </span><br><span class="line"><span class="variable">$module</span> = <span class="keyword">empty</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;m&#x27;</span>]) ? <span class="string">&#x27;&#x27;</span> : strtolower(<span class="variable">$_GET</span>[<span class="string">&#x27;m&#x27;</span>]); <span class="comment">//文件夹</span></span><br><span class="line"><span class="variable">$control</span> = <span class="keyword">empty</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;c&#x27;</span>])? <span class="string">&#x27;index&#x27;</span> : strtolower(<span class="variable">$_GET</span>[<span class="string">&#x27;c&#x27;</span>]); <span class="comment">//文件&#123;类&#125;</span></span><br><span class="line"><span class="variable">$action</span> = <span class="keyword">empty</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>])? <span class="string">&#x27;index&#x27;</span> : strtolower(<span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>]); <span class="comment">//方法</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$module</span>)&#123;</span><br><span class="line">     <span class="variable">$controlFile</span> = MODULE_PATH . <span class="variable">$module</span> . DIRECTORY_SEPARATOR . <span class="variable">$control</span> . <span class="string">&#x27;.php&#x27;</span>;</span><br><span class="line">     <span class="keyword">if</span>( !file_exists(<span class="variable">$controlFile</span>) )</span><br><span class="line">          <span class="keyword">echo</span> <span class="variable">$module</span> . DIRECTORY_SEPARATOR . <span class="variable">$control</span> . <span class="string">&#x27;.php&#x27;</span>.<span class="string">&#x27;类文件不存在&#x27;</span>; <span class="keyword">exit</span>();</span><br><span class="line">  </span><br><span class="line">     <span class="keyword">include</span>(<span class="variable">$controlFile</span>);</span><br><span class="line">     <span class="variable">$c</span> = <span class="keyword">new</span> <span class="variable">$control</span>;</span><br><span class="line">  </span><br><span class="line">     <span class="keyword">if</span>( !method_exists(<span class="variable">$c</span>, <span class="variable">$action</span>) )</span><br><span class="line">          <span class="keyword">echo</span> <span class="variable">$c</span>.<span class="string">&#x27;方法不存在&#x27;</span>; <span class="keyword">exit</span>();</span><br><span class="line">  </span><br><span class="line">     <span class="variable">$c</span>-&gt;<span class="variable">$action</span>();</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     <span class="comment">//默认首页[可用smarty模板引擎加载视图]</span></span><br><span class="line">     <span class="variable">$smarty</span>-&gt;display(<span class="string">&#x27;index.html&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">写了个简单的路由控制功能,根据参数m,c,a,控制响应url的模块,文件,方法。(MVC)方式URL。</span></span><br><span class="line"><span class="comment">说明:</span></span><br><span class="line"><span class="comment">MVC方式,m模块[对应模块文件夹],c控制器[对应类文件],a方法[对应对象方法]</span></span><br><span class="line"><span class="comment">没有指定module时默认访问系统首页</span></span><br><span class="line"><span class="comment">没有指定control时默认访问index[文件|类],没有该文件时输出文件[类]不存在错误</span></span><br><span class="line"><span class="comment">没有指定action时默认访问index[方法],没有该方法时输出方法不存在错误</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">例如:http://www.ioqx.com/web/index.php?m=admin</span></span><br><span class="line"><span class="comment">访问 module下admin文件夹下的index文件(类名与文件名相同)下的index方法</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <p>PHP简单路由</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/05/18/PHP%E7%AE%80%E5%8D%95%E8%B7%AF%E7%94%B1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1116,7 +1071,7 @@ form的id 要和程序里统一
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1184,7 +1139,7 @@ form的id 要和程序里统一
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">222</span>
+          <span class="site-state-item-count">218</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1234,13 +1189,13 @@ form的id 要和程序里统一
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">817k</span>
+    <span title="站点总字数">676k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:23</span>
+    <span title="站点阅读时长">10:15</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

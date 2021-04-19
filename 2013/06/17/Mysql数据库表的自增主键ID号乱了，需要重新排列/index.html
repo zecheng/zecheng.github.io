@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"zecheng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="12345678910Mysql数据库表的自增主键ID号乱了，需要重新排列。 原理：删除原有的自增ID，重新建立新的自增ID。 1，删除原有主键：ALTER TABLE &#96;table_name&#96; DROP &#96;id&#96;;2，添加新主键字段：ALTER TABLE &#96;table_name&#96; ADD &#96;id&#96; MEDIUMINT( 8 ) NOT NULL FIRST;3，设置新主键：ALTER TABL">
+  <meta name="description" content="Mysql数据库表的自增主键ID号乱了，需要重新排列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql数据库表的自增主键ID号乱了，需要重新排列">
 <meta property="og:url" content="https://zecheng.github.io/2013/06/17/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E7%9A%84%E8%87%AA%E5%A2%9E%E4%B8%BB%E9%94%AEID%E5%8F%B7%E4%B9%B1%E4%BA%86%EF%BC%8C%E9%9C%80%E8%A6%81%E9%87%8D%E6%96%B0%E6%8E%92%E5%88%97/index.html">
 <meta property="og:site_name" content="泽宬的技术博客">
-<meta property="og:description" content="12345678910Mysql数据库表的自增主键ID号乱了，需要重新排列。 原理：删除原有的自增ID，重新建立新的自增ID。 1，删除原有主键：ALTER TABLE &#96;table_name&#96; DROP &#96;id&#96;;2，添加新主键字段：ALTER TABLE &#96;table_name&#96; ADD &#96;id&#96; MEDIUMINT( 8 ) NOT NULL FIRST;3，设置新主键：ALTER TABL">
+<meta property="og:description" content="Mysql数据库表的自增主键ID号乱了，需要重新排列">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2013-06-17T14:50:22.000Z">
 <meta property="article:modified_time" content="2013-06-17T14:50:22.000Z">
@@ -226,7 +226,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>264</span>
+              <span>290</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -245,7 +245,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Mysql数据库表的自增主键ID号乱了，需要重新排列。</span><br><span class="line"> </span><br><span class="line">原理：删除原有的自增ID，重新建立新的自增ID。</span><br><span class="line"> </span><br><span class="line"><span class="number">1</span>，删除原有主键：</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `table_name` <span class="keyword">DROP</span> `id`;</span><br><span class="line"><span class="number">2</span>，添加新主键字段：</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `table_name` <span class="keyword">ADD</span> `id` MEDIUMINT( <span class="number">8</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">FIRST</span>;</span><br><span class="line"><span class="number">3</span>，设置新主键：</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `table_name` MODIFY <span class="keyword">COLUMN</span> `id` MEDIUMINT( <span class="number">8</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,<span class="keyword">ADD</span> <span class="keyword">PRIMARY</span> KEY(id);</span><br></pre></td></tr></table></figure>
+        <p>Mysql数据库表的自增主键ID号乱了，需要重新排列<span id="more"></span></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Mysql数据库表的自增主键ID号乱了，需要重新排列。</span><br><span class="line"> </span><br><span class="line">原理：删除原有的自增ID，重新建立新的自增ID。</span><br><span class="line"> </span><br><span class="line"><span class="number">1</span>，删除原有主键：</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `table_name` <span class="keyword">DROP</span> `id`;</span><br><span class="line"><span class="number">2</span>，添加新主键字段：</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `table_name` <span class="keyword">ADD</span> `id` MEDIUMINT( <span class="number">8</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">FIRST</span>;</span><br><span class="line"><span class="number">3</span>，设置新主键：</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `table_name` MODIFY <span class="keyword">COLUMN</span> `id` MEDIUMINT( <span class="number">8</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,<span class="keyword">ADD</span> <span class="keyword">PRIMARY</span> KEY(id);</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -364,7 +365,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">222</span>
+          <span class="site-state-item-count">218</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -414,13 +415,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">817k</span>
+    <span title="站点总字数">676k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:23</span>
+    <span title="站点阅读时长">10:15</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
